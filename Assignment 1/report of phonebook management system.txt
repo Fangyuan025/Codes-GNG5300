@@ -1,0 +1,63 @@
+Data Structures
+Contacts List
+
+    Type: List of dictionaries
+    Structure: Each contact is stored as a dictionary with keys:
+        First Name
+        Last Name
+        Phone Number
+        Email Address (optional)
+        Address (optional)
+
+Files
+
+    Contacts File: contacts.csv
+        Stores contact information persistently.
+        Uses CSV format for easy readability and import/export.
+    Log File: log.txt
+        Records all actions (additions, updates, deletions) with timestamps.
+
+Functionalities
+CRUD Operations
+
+    Create:
+        Add individual contacts with mandatory fields (first name, last name, phone number) and optional fields (email, address).
+        Batch import contacts from a CSV file.
+
+    Read:
+        View all stored contacts.
+
+    Update:
+        Modify existing contact details using the phone number as the identifier.
+
+    Delete:
+        Remove contacts individually by phone number.
+
+Search Functionality
+
+    Search:
+        Locate contacts by partial matches in first names, last names, and phone numbers.
+
+Sorting
+
+    Sort:
+        Organize contacts alphabetically by first name, last name, or phone number.
+
+Validation
+
+    Phone Number Validation:
+        Ensures phone numbers follow the format (###) ###-####.
+
+    Email Validation:
+        Checks email addresses against a standard pattern for validity.
+
+Logging
+
+    Action Logging:
+        Records all create, update, and delete operations with timestamps for audit purposes.
+
+User Interface
+
+    Command-Line Interface:
+        Presents users with options to perform different operations.
+        Prompts for necessary input and provides immediate feedback on validation errors.
