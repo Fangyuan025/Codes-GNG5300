@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Posts in {{ category.name }}</h2>
+    {% for post in posts %}
+        <article>
+            <h2><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h2>
+            <p>{{ post.body|truncatechars:200 }}</p>
+            <p>Categories:
+                {% for category in post.categories.all %}
+                    <a href="{% url 'blog_category' category.name %}">{{ category.name }}</a>{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </p>
+        </article>
+    {% endfor %}
+{% endblock %}
