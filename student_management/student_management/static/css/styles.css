@@ -1,0 +1,16 @@
+/* static/css/styles.css */
+
+/* Custom styles for the student management system */
+
+body {
+    padding-top: 70px;  /* To ensure content is not hidden behind navbar */
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+h1, h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
