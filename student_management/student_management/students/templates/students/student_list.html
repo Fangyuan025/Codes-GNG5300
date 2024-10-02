@@ -15,6 +15,26 @@
             {{ student.first_name }} {{ student.last_name }}
         </a>
     </li>
+    {% empty %}
+    <li>No students found.</li>
     {% endfor %}
 </ul>
+
+<div class="pagination">
+    <span class="page-links">
+        {% if students.has_previous %}
+            <a href="?page=1{% if query %}&q={{ query }}{% endif %}">First</a>
+            <a href="?page={{ students.previous_page_number }}{% if query %}&q={{ query }}{% endif %}">Previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ students.number }} of {{ students.paginator.num_pages }}.
+        </span>
+
+        {% if students.has_next %}
+            <a href="?page={{ students.next_page_number }}{% if query %}&q={{ query }}{% endif %}">Next</a>
+            <a href="?page={{ students.paginator.num_pages }}{% if query %}&q={{ query }}{% endif %}">Last</a>
+        {% endif %}
+    </span>
+</div>
 {% endblock %}
