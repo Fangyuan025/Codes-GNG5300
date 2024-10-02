@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Student
 from .forms import StudentForm
+from django.contrib.auth.decorators import login_required
 
 def student_list(request):
     students = Student.objects.all()
@@ -10,6 +11,7 @@ def student_detail(request, pk):
     student = get_object_or_404(Student, pk=pk)
     return render(request, 'students/student_detail.html', {'student': student})
 
+@login_required
 def student_add(request):
     if request.method == 'POST':
         form = StudentForm(request.POST)
@@ -20,6 +22,7 @@ def student_add(request):
         form = StudentForm()
     return render(request, 'students/student_form.html', {'form': form})
 
+@login_required
 def student_edit(request, pk):
     student = get_object_or_404(Student, pk=pk)
     if request.method == 'POST':
